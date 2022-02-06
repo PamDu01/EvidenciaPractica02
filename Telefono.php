@@ -70,6 +70,3 @@ $mi_sp->mas_info();
 echo '<h2>--------------------------------</h2>';
 echo '<h3>Hecho por Pamela Durante Cruz </h3>';
 echo '<h3>18270277 </h3>';
-
-
-
