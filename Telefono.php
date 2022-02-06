@@ -1,14 +1,14 @@
 <?php
-class Telfono {
+class Telefono {
 	public $marca;
 	public $modelo;
 	protected $alambrico = true;
 	protected $comunicacion;
 
-	public function _contruct ($marca, $modelo) {
-		this ->marca = $marca;
-		this ->modelo = $modelo;
-		this ->cominicacion = ($this -> alambrico) ? 'Alambrica' : 'Inalambrica';
+	public function __construct ($marca,$modelo){
+		$this ->marca = $marca;
+		$this ->modelo = $modelo;
+		$this ->comunicacion = ($this -> alambrico) ? 'Alambrica' : 'Inalambrica';
 }
 
 	public function llamar() {
@@ -17,27 +17,26 @@ class Telfono {
 
 	public function mas_info(){
 		return print ('<ul>
-			<li> Marca <b>'. $this -> marca . '</b></li>
-			<li> Modelo <b>'. $this -> modelo . '</b></li>
-			<li> Comunicacion <b>'. $this -> comunicacion . '</b></li>
-			<ul>';
+			<li> Marca <b>'. $this->marca . '</b></li>
+			<li> Modelo <b>'. $this->modelo . '</b></li>
+			<li> Comunicacion <b>'. $this->comunicacion . '</b></li>
+			</ul>');
 	}
 }
 
 class Celular extends Telefono {
 	protected $alambrico = false;
 
-	public function __construct($marca, $modelo){
-		parent :: __construct($marca, $modelo);
-	}
+	public function _construct($marca, $modelo){
+		parent :: _construct($marca, $modelo);
 	}
 }
 
 final class SmarthPhone extends Celular{
-	public $alambrico = false:
+	public $alambrico = false;
 	public $internet = true;
 
-	public function_construct($marca,$modelo){
+	public function _construct($marca,$modelo){
 		parent:: construct($modelo, $marca);
 	}
 
@@ -47,9 +46,8 @@ final class SmarthPhone extends Celular{
 			<li> Modelo <b>'. $this -> modelo. '</b></li>
 			<li> Comunicacion <b>'. $this -> comunicacion. '</b></li>
 			<li> Dispositivo con Acceso a Internet</li>
-		</ul<');
-}
-
+		</ul>');
+	}
 }
 
 
@@ -61,14 +59,17 @@ $tel_casa->llamar();
 $tel_casa->mas_info();
 
 echo '<h2>Celular:</h2>';
-$mi_cel = new Celular ('NOkia', '5120');
-$mi_cel-> llamar();
-$mi_cel-> mas_info();
+$mi_cel = new Celular ('Nokia', '5120');
+$mi_cel->llamar();
+$mi_cel->mas_info();
 
 echo '<h2>SmarthPhone:</h2>';
 $mi_sp = new SmarthPhone ('Motorola', 'G3');
-$mi_sp-> llamar();
-$mi_sp-> mas_info();
+$mi_sp->llamar();
+$mi_sp->mas_info();
+echo '<h2>--------------------------------</h2>';
+echo '<h3>Hecho por Pamela Durante Cruz </h3>';
+echo '<h3>18270277 </h3>';
 
 
 
